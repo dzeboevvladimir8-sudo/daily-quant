@@ -54,7 +54,7 @@ export function mistakes(state, problemsById) {
   const out = [];
   for (const date of Object.keys(state.days).sort().reverse()) {
     for (const [id, r] of Object.entries(state.days[date].results)) {
-      if ((r.status === 'missed' || r.status === 'partial') && state.redo?.[id]?.status !== 'solved' && problemsById[id]) {
+      if ((r.status === 'missed' || r.status === 'partial') && !['solved', 'solved_hint'].includes(state.redo?.[id]?.status) && problemsById[id]) {
         out.push({ problem: problemsById[id], date, status: r.status });
       }
     }

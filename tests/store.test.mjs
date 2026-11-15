@@ -57,7 +57,9 @@ test('mistakes lists partial/missed, newest first, minus redo-solved', () => {
     '2026-11-15': { set: 1, results: { c: { status: 'partial' } } },
   }, redo: {} };
   assert.deepEqual(mistakes(st, byId).map(m => m.problem.id), ['c', 'a']);
-  st.redo.c = { status: 'solved' };
+  st.redo.a = { status: 'missed' };
+  assert.deepEqual(mistakes(st, byId).map(m => m.problem.id), ['c', 'a']);
+  st.redo.c = { status: 'solved_hint' };
   assert.deepEqual(mistakes(st, byId).map(m => m.problem.id), ['a']);
 });
 
