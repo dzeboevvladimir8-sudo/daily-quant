@@ -1,0 +1,1717 @@
+[
+ {
+  "id": "oly-01",
+  "category": "olympiad",
+  "topic": "Number theory",
+  "difficulty": "easy",
+  "statement": "What are the last two digits of $7^{2026}$?",
+  "hint": "Compute the first few powers of $7$ modulo $100$. Something nice happens quickly.",
+  "answer": {
+   "type": "exact",
+   "value": "49"
+  },
+  "solution": "$7^2=49$, $7^4=2401\\equiv 1 \\pmod{100}$. So powers of $7$ repeat every $4$ steps mod $100$. Since $2026=4\\cdot506+2$, $7^{2026}\\equiv 7^2=49$. **Answer: 49.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation of 7^2026 mod 100",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-02",
+  "category": "olympiad",
+  "topic": "Combinatorics",
+  "difficulty": "easy",
+  "statement": "How many four-digit numbers have digits that strictly increase from left to right (like $1359$)?",
+  "hint": "Once you choose which four digits appear, how many ways are there to arrange them? Can $0$ be one of them?",
+  "answer": {
+   "type": "exact",
+   "value": "126"
+  },
+  "solution": "A strictly increasing number is fixed by its set of digits: there is exactly one increasing order. $0$ can't appear: it would have to come first. So choose $4$ digits from $\\{1,\\dots,9\\}$: $\\binom94=126$. **Answer: 126.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Brute force over 1000..9999",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-03",
+  "category": "olympiad",
+  "topic": "Algebra",
+  "difficulty": "easy",
+  "statement": "If $x+\\dfrac1x=3$, find $x^4+\\dfrac1{x^4}$.",
+  "hint": "Square the given equation. What do you get? Then do it again.",
+  "answer": {
+   "type": "exact",
+   "value": "47"
+  },
+  "solution": "Squaring: $x^2+2+\\frac1{x^2}=9$, so $x^2+\\frac1{x^2}=7$. Squaring again: $x^4+2+\\frac1{x^4}=49$, so $x^4+\\frac1{x^4}=47$. **Answer: 47.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Numerical evaluation at x = (3+sqrt5)/2",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-04",
+  "category": "olympiad",
+  "topic": "Geometry",
+  "difficulty": "easy",
+  "statement": "A right-angled triangle has legs $20$ and $21$. Find the radius of its inscribed circle.",
+  "hint": "Area equals $r\\times s$, where $s$ is the semi-perimeter. You'll need the hypotenuse first.",
+  "answer": {
+   "type": "exact",
+   "value": "6"
+  },
+  "solution": "Hypotenuse $=\\sqrt{400+441}=29$. Area $=\\frac12\\cdot20\\cdot21=210$, semi-perimeter $s=\\frac{20+21+29}2=35$. Since area $=rs$, $r=210/35=6$. (For a right triangle, also $r=\\frac{a+b-c}2=\\frac{20+21-29}2=6$.) **Answer: 6.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Coordinates + shoelace area / semi-perimeter",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-05",
+  "category": "olympiad",
+  "topic": "Number theory",
+  "difficulty": "easy",
+  "statement": "Prove that $n^5-n$ is divisible by $30$ for every integer $n$.",
+  "hint": "$30=2\\cdot3\\cdot5$. Show divisibility by each prime separately. Factor $n^5-n$ as far as you can.",
+  "answer": {
+   "type": "proof"
+  },
+  "solution": "Factor: $n^5-n=n(n^4-1)=(n-1)n(n+1)(n^2+1)$.\n\n- **By 2 and 3:** $(n-1)n(n+1)$ is three consecutive integers, so one is even and one is a multiple of $3$.\n- **By 5:** if $n\\equiv0,1,4 \\pmod 5$ then $n$, $n-1$ or $n+1$ is a multiple of $5$. If $n\\equiv 2$ or $3$, then $n^2\\equiv4$, so $n^2+1\\equiv0\\pmod5$.\n\nSince $2,3,5$ are distinct primes all dividing $n^5-n$, so does $30$. (Fermat's little theorem gives the factor $5$ directly: $n^5\\equiv n \\pmod 5$.)",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Claim checked by computer for all -5000 <= n <= 5000; proof written by hand",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-06",
+  "category": "olympiad",
+  "topic": "Number theory",
+  "difficulty": "easy",
+  "statement": "How many zeros are at the end of $2026!$?",
+  "hint": "Each trailing zero needs a factor $2\\cdot5$. Which of the two is rarer? Count it, remembering that $25$ contributes two.",
+  "answer": {
+   "type": "exact",
+   "value": "505"
+  },
+  "solution": "Factors of $2$ are plentiful, so count factors of $5$ (Legendre's formula): $\\lfloor\\frac{2026}{5}\\rfloor+\\lfloor\\frac{2026}{25}\\rfloor+\\lfloor\\frac{2026}{125}\\rfloor+\\lfloor\\frac{2026}{625}\\rfloor=405+81+16+3=505$. **Answer: 505.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Computed 2026! exactly and stripped factors of 10",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-07",
+  "category": "olympiad",
+  "topic": "Algebra",
+  "difficulty": "easy",
+  "statement": "Real numbers $a,b$ satisfy $a+b=5$ and $ab=3$. Find $a^3+b^3$.",
+  "hint": "Don't solve for $a$ and $b$. Expand $(a+b)^3$ and see what's left over.",
+  "answer": {
+   "type": "exact",
+   "value": "80"
+  },
+  "solution": "$(a+b)^3=a^3+b^3+3ab(a+b)$, so $a^3+b^3=125-3\\cdot3\\cdot5=125-45=80$. **Answer: 80.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Numerical evaluation with the actual roots",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-08",
+  "category": "olympiad",
+  "topic": "Geometry",
+  "difficulty": "easy",
+  "statement": "$ABCD$ is a square of side $6$. $E$ is the midpoint of $BC$. The line $AE$ meets the diagonal $BD$ at $F$. Find the area of triangle $BEF$.",
+  "hint": "Put the square on coordinates with $A$ at the origin. Write the equations of lines $AE$ and $BD$.",
+  "answer": {
+   "type": "exact",
+   "value": "3"
+  },
+  "solution": "Take $A=(0,0)$, $B=(6,0)$, $C=(6,6)$, $D=(0,6)$, so $E=(6,3)$. Line $AE$: $y=\\frac x2$. Line $BD$: $x+y=6$. They meet where $\\frac{3x}2=6$, so $F=(4,2)$. Triangle $BEF$ has vertical base $BE=3$ on $x=6$ and height $6-4=2$, so area $=\\frac12\\cdot3\\cdot2=3$. (Without coordinates: triangles $BFE$ and $DFA$ are similar with ratio $1:2$.) **Answer: 3.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Line intersection in coordinates + shoelace",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-09",
+  "category": "olympiad",
+  "topic": "Combinatorics",
+  "difficulty": "easy",
+  "statement": "How many subsets of $\\{1,2,\\dots,10\\}$ (including the empty set) contain no two consecutive integers?",
+  "hint": "Let $a_n$ be the answer for $\\{1,\\dots,n\\}$. Split by whether $n$ is in the subset. What recursion do you get?",
+  "answer": {
+   "type": "exact",
+   "value": "144"
+  },
+  "solution": "If $n$ is not chosen, there are $a_{n-1}$ ways for the rest. If $n$ is chosen, $n-1$ is not, giving $a_{n-2}$. So $a_n=a_{n-1}+a_{n-2}$ with $a_1=2$, $a_2=3$: Fibonacci numbers $2,3,5,8,13,21,34,55,89,144$. **Answer: 144.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Brute force over all 1024 subsets",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-10",
+  "category": "olympiad",
+  "topic": "Number theory",
+  "difficulty": "easy",
+  "statement": "Find the smallest positive integer that leaves remainder $2$ when divided by $3$, remainder $3$ when divided by $5$, and remainder $2$ when divided by $7$.",
+  "hint": "Two of the conditions have the same remainder. What does that tell you about $n-2$?",
+  "answer": {
+   "type": "exact",
+   "value": "23"
+  },
+  "solution": "$n\\equiv2 \\pmod3$ and $n\\equiv2\\pmod7$ mean $21\\mid n-2$, so $n\\in\\{2,23,44,\\dots\\}$. Check mod $5$: $2\\to2$, $23\\to3$. **Answer: 23.**",
+  "source": "Sunzi Suanjing (ancient Chinese text): the original Chinese remainder theorem problem",
+  "verification": {
+   "status": "verified",
+   "method": "Brute force search",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-11",
+  "category": "olympiad",
+  "topic": "Algebra",
+  "difficulty": "easy",
+  "statement": "Find the sum of all real $x$ with $|x-1|+|x-3|=6$.",
+  "hint": "$|x-1|+|x-3|$ is the total distance from $x$ to the points $1$ and $3$. Where can such a point be?",
+  "answer": {
+   "type": "exact",
+   "value": "4"
+  },
+  "solution": "Between $1$ and $3$ the total distance is $2$, too small. For $x>3$: $(x-1)+(x-3)=6$ gives $x=5$. For $x<1$: $(1-x)+(3-x)=6$ gives $x=-1$. The solutions are symmetric about $2$; sum $=4$. **Answer: 4.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Exact scan over a rational grid in [-100, 100]",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-12",
+  "category": "olympiad",
+  "topic": "Geometry",
+  "difficulty": "easy",
+  "statement": "A triangle has sides $13$, $14$, $15$. Find the length of the altitude to the side of length $14$.",
+  "hint": "Find the area first (Heron's formula, or split the triangle into two right triangles).",
+  "answer": {
+   "type": "exact",
+   "value": "12"
+  },
+  "solution": "Semi-perimeter $s=21$. Area $=\\sqrt{21\\cdot8\\cdot7\\cdot6}=\\sqrt{7056}=84$. Altitude to side $14$: $\\frac{2\\cdot84}{14}=12$. (It splits the triangle into $5$-$12$-$13$ and $9$-$12$-$15$ right triangles.) **Answer: 12.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Heron's formula with exact arithmetic",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-13",
+  "category": "olympiad",
+  "topic": "Combinatorics",
+  "difficulty": "easy",
+  "statement": "Five points with integer coordinates are chosen in the plane. Prove that two of them have a midpoint that also has integer coordinates.",
+  "hint": "When is the midpoint of $(a,b)$ and $(c,d)$ a lattice point? Think about parity.",
+  "answer": {
+   "type": "proof"
+  },
+  "solution": "The midpoint $\\left(\\frac{a+c}2,\\frac{b+d}2\\right)$ is a lattice point exactly when $a\\equiv c$ and $b\\equiv d \\pmod 2$. Each point has one of four parity types: (even, even), (even, odd), (odd, even), (odd, odd). With five points and four types, by the pigeonhole principle two points share a type, and their midpoint is a lattice point.",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Claim checked by computer over all 4^5 parity patterns; proof written by hand",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-14",
+  "category": "olympiad",
+  "topic": "Algebra",
+  "difficulty": "easy",
+  "statement": "Evaluate $\\dfrac{1}{1\\cdot2}+\\dfrac{1}{2\\cdot3}+\\dfrac{1}{3\\cdot4}+\\cdots+\\dfrac{1}{99\\cdot100}$.",
+  "hint": "Write $\\frac1{k(k+1)}$ as a difference of two simpler fractions.",
+  "answer": {
+   "type": "exact",
+   "value": "99/100"
+  },
+  "solution": "$\\frac1{k(k+1)}=\\frac1k-\\frac1{k+1}$. The sum telescopes: $\\left(1-\\frac12\\right)+\\left(\\frac12-\\frac13\\right)+\\cdots+\\left(\\frac1{99}-\\frac1{100}\\right)=1-\\frac1{100}=\\frac{99}{100}$. **Answer: 99/100.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Exact Fraction sum",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-15",
+  "category": "olympiad",
+  "topic": "Number theory",
+  "difficulty": "medium",
+  "statement": "How many positive divisors does $10!$ have?",
+  "hint": "Find the prime factorisation of $10!$. How does the number of divisors depend on the exponents?",
+  "answer": {
+   "type": "exact",
+   "value": "270"
+  },
+  "solution": "Count each prime's exponent in $10!$: $2$: $5+2+1=8$; $3$: $3+1=4$; $5$: $2$; $7$: $1$. So $10!=2^8\\cdot3^4\\cdot5^2\\cdot7$. A divisor picks each exponent independently: $(8+1)(4+1)(2+1)(1+1)=270$. **Answer: 270.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Brute force divisor count",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-16",
+  "category": "olympiad",
+  "topic": "Combinatorics",
+  "difficulty": "medium",
+  "statement": "In how many ways can a $2\\times10$ rectangle be tiled with $1\\times2$ dominoes?",
+  "hint": "Look at the left end. Either one vertical domino covers it, or two horizontal ones stacked. What's left in each case?",
+  "answer": {
+   "type": "exact",
+   "value": "89"
+  },
+  "solution": "Let $t_n$ count tilings of $2\\times n$. The leftmost column is either a vertical domino (leaving $2\\times(n-1)$) or two stacked horizontal dominoes (leaving $2\\times(n-2)$). So $t_n=t_{n-1}+t_{n-2}$, $t_1=1$, $t_2=2$: $1,2,3,5,8,13,21,34,55,89$. **Answer: 89.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Exhaustive search over all tilings",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-17",
+  "category": "olympiad",
+  "topic": "Geometry",
+  "difficulty": "medium",
+  "statement": "Two circles have radii $5$ and $3$, and their centres are $10$ apart. A common **external** tangent touches them at $P$ and $Q$. Find $PQ^2$.",
+  "hint": "Both radii to the tangent points are perpendicular to $PQ$. Slide the segment $PQ$ so that it starts at a centre and look for a right triangle.",
+  "answer": {
+   "type": "exact",
+   "value": "96"
+  },
+  "solution": "Let the centres be $O_1,O_2$. $O_1P$ and $O_2Q$ are both perpendicular to $PQ$, so $O_1PQO_2$ is a right trapezium. Draw through $O_2$ a line parallel to $PQ$, meeting $O_1P$ at $H$. Then $O_2H=PQ$, $O_1H=5-3=2$, and $O_1O_2=10$. By Pythagoras $PQ^2=10^2-2^2=96$. **Answer: 96.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Explicit tangent line in coordinates",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-18",
+  "category": "olympiad",
+  "topic": "Number theory",
+  "difficulty": "medium",
+  "statement": "Prove that the fraction $\\dfrac{21n+4}{14n+3}$ is in lowest terms for every positive integer $n$.",
+  "hint": "Any common divisor $d$ of $21n+4$ and $14n+3$ divides every integer combination of them. Find a combination with no $n$ in it.",
+  "answer": {
+   "type": "proof"
+  },
+  "solution": "Let $d$ divide both $21n+4$ and $14n+3$. Then $d$ divides $3(14n+3)-2(21n+4)=42n+9-42n-8=1$. So $d=1$, and the fraction is irreducible. (Equivalently, run the Euclidean algorithm: $\\gcd(21n+4,14n+3)=\\gcd(7n+1,14n+3)=\\gcd(7n+1,1)=1$.)",
+  "source": "IMO 1959, Problem 1",
+  "verification": {
+   "status": "verified",
+   "method": "Claim checked by computer for 1 <= n <= 200000; proof written by hand",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-19",
+  "category": "olympiad",
+  "topic": "Algebra",
+  "difficulty": "medium",
+  "statement": "Real numbers $x,y$ satisfy $x+2y=10$. Find the minimum value of $x^2+y^2$.",
+  "hint": "$x^2+y^2$ is the squared distance from the origin to $(x,y)$, which lies on a line. Or substitute $x=10-2y$.",
+  "answer": {
+   "type": "exact",
+   "value": "20"
+  },
+  "solution": "Geometrically: the distance from the origin to the line $x+2y=10$ is $\\frac{10}{\\sqrt{1+4}}=\\frac{10}{\\sqrt5}$, so the minimum of $x^2+y^2$ is $\\frac{100}5=20$. Algebraically: $(10-2y)^2+y^2=5y^2-40y+100=5(y-4)^2+20$, minimised at $y=4$, $x=2$. **Answer: 20.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Exact scan over a rational grid",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-20",
+  "category": "olympiad",
+  "topic": "Combinatorics",
+  "difficulty": "medium",
+  "statement": "A path goes from $(0,0)$ to $(6,4)$ using unit steps right or up. How many such paths avoid the point $(3,2)$?",
+  "hint": "Count all paths, then subtract the ones that pass through $(3,2)$. A path through $(3,2)$ is a path to it followed by a path from it.",
+  "answer": {
+   "type": "exact",
+   "value": "110"
+  },
+  "solution": "All paths: choose which $4$ of the $10$ steps go up: $\\binom{10}4=210$. Through $(3,2)$: $\\binom52\\cdot\\binom52=10\\cdot10=100$. Avoiding it: $210-100=110$. **Answer: 110.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Enumeration of all 210 paths",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-21",
+  "category": "olympiad",
+  "topic": "Geometry",
+  "difficulty": "medium",
+  "statement": "$ABCDEF$ is a regular hexagon. What fraction of its area does triangle $ACE$ cover?",
+  "hint": "Cut the hexagon into pieces you can compare: the three small triangles outside $ACE$, e.g. $ABC$.",
+  "answer": {
+   "type": "exact",
+   "value": "1/2"
+  },
+  "solution": "The hexagon is $ACE$ plus the three congruent triangles $ABC$, $CDE$, $EFA$. Reflecting $B$ in $AC$ lands on the centre $O$, so $[ABC]=[AOC]$. Likewise for the other two, and $AOC$, $COE$, $EOA$ together make $ACE$. So the three outside triangles have the same total area as $ACE$, and $ACE$ is half the hexagon. **Answer: 1/2.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Coordinates + shoelace",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-22",
+  "category": "olympiad",
+  "topic": "Number theory",
+  "difficulty": "easy",
+  "statement": "What is the remainder when $2^{100}$ is divided by $7$?",
+  "hint": "Find the smallest power of $2$ that is $1$ more than a multiple of $7$.",
+  "answer": {
+   "type": "exact",
+   "value": "2"
+  },
+  "solution": "$2^3=8\\equiv1\\pmod7$. $100=3\\cdot33+1$, so $2^{100}=(2^3)^{33}\\cdot2\\equiv2$. **Answer: 2.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Direct modular exponentiation",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-23",
+  "category": "olympiad",
+  "topic": "Algebra",
+  "difficulty": "medium",
+  "statement": "Prove that $a^2+b^2+c^2\\ge ab+bc+ca$ for all real numbers $a,b,c$. When does equality hold?",
+  "hint": "Multiply both sides by $2$ and try to write the difference as a sum of squares.",
+  "answer": {
+   "type": "proof"
+  },
+  "solution": "$2(a^2+b^2+c^2)-2(ab+bc+ca)=(a-b)^2+(b-c)^2+(c-a)^2\\ge0$, since squares are non-negative. Dividing by $2$ gives the inequality. Equality needs all three squares to be $0$, i.e. $a=b=c$.",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Claim checked by computer on all integer triples in [-15,15]^3 and 100000 random real triples; proof written by hand",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-24",
+  "category": "olympiad",
+  "topic": "Combinatorics",
+  "difficulty": "medium",
+  "statement": "In how many ways can $10$ identical sweets be shared among $4$ children so that every child gets at least one?",
+  "hint": "Line the sweets up in a row. Sharing them out is the same as choosing where to cut the row.",
+  "answer": {
+   "type": "exact",
+   "value": "84"
+  },
+  "solution": "Line up the $10$ sweets; there are $9$ gaps between them. Choosing $3$ of the gaps to cut splits the row into $4$ non-empty groups, one per child in order. So the count is $\\binom93=84$ (stars and bars). **Answer: 84.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Brute force over all 4-tuples",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-25",
+  "category": "olympiad",
+  "topic": "Geometry",
+  "difficulty": "medium",
+  "statement": "A point $P$ inside rectangle $ABCD$ has $PA=3$, $PB=4$, $PC=5$. Find $PD^2$.",
+  "hint": "Drop perpendiculars from $P$ to the four sides. Each of $PA^2,\\dots,PD^2$ is a sum of two of those four lengths squared.",
+  "answer": {
+   "type": "exact",
+   "value": "18"
+  },
+  "solution": "Let the distances from $P$ to the four sides be $w$ (to $AD$), $x$ (to $BC$), $y$ (to $AB$), $z$ (to $CD$). Then $PA^2=w^2+y^2$, $PB^2=x^2+y^2$, $PC^2=x^2+z^2$, $PD^2=w^2+z^2$. So $PA^2+PC^2=PB^2+PD^2$ (the British flag theorem): $9+25=16+PD^2$, so $PD^2=18$. **Answer: 18.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Explicit rectangle in coordinates",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-26",
+  "category": "olympiad",
+  "topic": "Number theory",
+  "difficulty": "medium",
+  "statement": "Prove that no integer of the form $8k+7$ can be written as a sum of three perfect squares.",
+  "hint": "What remainders can a perfect square leave when divided by $8$?",
+  "answer": {
+   "type": "proof"
+  },
+  "solution": "Squares mod $8$: $0^2\\equiv0$, $(\\pm1)^2\\equiv1$, $(\\pm2)^2\\equiv4$, $(\\pm3)^2\\equiv1$, $4^2\\equiv0$. So every square is $0$, $1$ or $4$ mod $8$. A sum of three values from $\\{0,1,4\\}$ is one of $0,1,2,3,4,5,6,8,9,12$, which mod $8$ never gives $7$. So $8k+7$ is never a sum of three squares. (This is the easy direction of Legendre's three-square theorem.)",
+  "source": "Classic: the easy direction of Legendre's three-square theorem",
+  "verification": {
+   "status": "verified",
+   "method": "Claim checked by computer for every 8k+7 below 3000; proof written by hand",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-27",
+  "category": "olympiad",
+  "topic": "Algebra",
+  "difficulty": "medium",
+  "statement": "Find the sum of all positive integers $n$ for which $n^2-19n+99$ is a perfect square.",
+  "hint": "Set $n^2-19n+99=m^2$, multiply by $4$, complete the square, and factor a difference of squares.",
+  "answer": {
+   "type": "exact",
+   "value": "38"
+  },
+  "solution": "Multiply $n^2-19n+99=m^2$ by $4$: $(2n-19)^2+35=4m^2$, so $(2m-2n+19)(2m+2n-19)=35$. With $m\\ge0$, the factor pairs of $35$ ($1\\cdot35$, $5\\cdot7$, and negatives) give $2n-19=\\pm17$ or $\\pm1$, so $n\\in\\{1,18,9,10\\}$. Check: $81,81,9,9$, all squares. Sum $=1+9+10+18=38$. **Answer: 38.**",
+  "source": "AIME 1999, Problem 3",
+  "verification": {
+   "status": "verified",
+   "method": "Brute force over n < 10000",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-28",
+  "category": "olympiad",
+  "topic": "Combinatorics",
+  "difficulty": "medium",
+  "statement": "A convex decagon has no three diagonals meeting at a single interior point. How many intersection points do its diagonals have inside the decagon?",
+  "hint": "Look at one intersection point. Which vertices does it come from, and how many points does each such choice give?",
+  "answer": {
+   "type": "exact",
+   "value": "210"
+  },
+  "solution": "Two diagonals cross inside a convex polygon exactly when their four endpoints are distinct and alternate around the polygon. Any $4$ vertices form a convex quadrilateral whose two diagonals cross exactly once. So intersection points correspond one-to-one to sets of $4$ vertices: $\\binom{10}4=210$. **Answer: 210.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Random convex decagon, every pair of diagonals tested for crossing",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-29",
+  "category": "olympiad",
+  "topic": "Number theory",
+  "difficulty": "medium",
+  "statement": "How many integers $n$ with $1\\le n\\le1000$ are divisible by $3$ or by $5$, but not by $15$?",
+  "hint": "Inclusion-exclusion for '3 or 5', then remove the multiples of $15$, which were all counted.",
+  "answer": {
+   "type": "exact",
+   "value": "401"
+  },
+  "solution": "Multiples of $3$: $333$. Of $5$: $200$. Of $15$: $66$. Divisible by $3$ or $5$: $333+200-66=467$. Removing the $66$ multiples of $15$: $401$. **Answer: 401.**",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Brute force over 1..1000",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "oly-30",
+  "category": "olympiad",
+  "topic": "Combinatorics",
+  "difficulty": "medium",
+  "statement": "Prove that among any $7$ integers there are two whose sum or difference is divisible by $10$.",
+  "hint": "Group the residues mod $10$ into boxes so that any two numbers from the same box work. How many boxes do you need?",
+  "answer": {
+   "type": "proof"
+  },
+  "solution": "Use six boxes of residues mod $10$: $\\{0\\}$, $\\{5\\}$, $\\{1,9\\}$, $\\{2,8\\}$, $\\{3,7\\}$, $\\{4,6\\}$. Two integers in the same box either have equal residues (difference divisible by $10$) or residues adding to $10$ (sum divisible by $10$). Seven integers in six boxes: by pigeonhole two share a box. (Six aren't enough: $0,1,2,3,4,5$ fails.)",
+  "source": "Classic olympiad problem (UKMT style)",
+  "verification": {
+   "status": "verified",
+   "method": "Claim checked by computer over every multiset of 7 residues mod 10; proof written by hand",
+   "script": "verify/olympiad.py"
+  }
+ },
+ {
+  "id": "prob-01",
+  "category": "probability",
+  "topic": "Dice",
+  "difficulty": "easy",
+  "statement": "Two fair dice are rolled. What is the probability that at least one shows a six?",
+  "hint": "'At least one' is usually easier through the complement.",
+  "answer": {
+   "type": "exact",
+   "value": "11/36"
+  },
+  "solution": "P(no six) $=\\left(\\frac56\\right)^2=\\frac{25}{36}$, so P(at least one) $=1-\\frac{25}{36}=\\frac{11}{36}$. **Answer: 11/36.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Exact enumeration of 36 outcomes + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-02",
+  "category": "probability",
+  "topic": "Dice",
+  "difficulty": "easy",
+  "statement": "Two fair dice are rolled. What is the probability that the product of the two numbers is even?",
+  "hint": "When is a product odd?",
+  "answer": {
+   "type": "exact",
+   "value": "3/4"
+  },
+  "solution": "The product is odd only if both are odd: $\\frac12\\cdot\\frac12=\\frac14$. So P(even) $=\\frac34$. **Answer: 3/4.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Exact enumeration + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-03",
+  "category": "probability",
+  "topic": "Expected value",
+  "difficulty": "easy",
+  "statement": "You roll a fair die until a six appears. What is the expected number of rolls, including the last?",
+  "hint": "Let $E$ be the answer. After one roll you either stop, or you're back where you started having used one roll.",
+  "answer": {
+   "type": "exact",
+   "value": "6"
+  },
+  "solution": "$E=1+\\frac56E$ (one roll, then with probability $\\frac56$ start over), so $\\frac16E=1$, $E=6$. In general, waiting for an event of probability $p$ takes $\\frac1p$ tries on average. **Answer: 6.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Exact series (truncated) + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-04",
+  "category": "probability",
+  "topic": "Conditional probability",
+  "difficulty": "easy",
+  "statement": "A family has two children. You learn that at least one of them is a boy. What is the probability that both are boys? (Assume each child is independently a boy or a girl with probability $\\frac12$.)",
+  "hint": "Write out the equally likely families and cross out the ones the information rules out.",
+  "answer": {
+   "type": "exact",
+   "value": "1/3"
+  },
+  "solution": "The four equally likely families are BB, BG, GB, GG. 'At least one boy' rules out GG, leaving three, of which one is BB. **Answer: 1/3.** (If instead you were told 'the older child is a boy', the answer would be $\\frac12$: the information matters, not just the fact.)",
+  "source": "Classic (the boy-or-girl problem)",
+  "verification": {
+   "status": "verified",
+   "method": "Exact enumeration + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-05",
+  "category": "probability",
+  "topic": "Conditional probability",
+  "difficulty": "easy",
+  "statement": "A prize is behind one of three doors. You pick a door. The host, who knows where the prize is, opens one of the other two doors, always one with no prize, and offers you the chance to switch. What is your probability of winning if you switch?",
+  "hint": "Switching wins exactly when your first pick was wrong.",
+  "answer": {
+   "type": "exact",
+   "value": "2/3"
+  },
+  "solution": "Your first pick is right with probability $\\frac13$. If it's wrong (probability $\\frac23$), the host must open the other empty door, so switching lands on the prize. So switching wins with probability $\\frac23$. **Answer: 2/3.**",
+  "source": "The Monty Hall problem (classic)",
+  "verification": {
+   "status": "verified",
+   "method": "Exact enumeration over car, pick and host choice + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-06",
+  "category": "probability",
+  "topic": "Counting",
+  "difficulty": "easy",
+  "statement": "A bag has $5$ red and $3$ blue balls. You draw $3$ without replacement. What is the probability that exactly $2$ are red?",
+  "hint": "Count the favourable hands and the total hands with binomial coefficients.",
+  "answer": {
+   "type": "exact",
+   "value": "15/28"
+  },
+  "solution": "Favourable: $\\binom52\\binom31=10\\cdot3=30$. Total: $\\binom83=56$. Probability $=\\frac{30}{56}=\\frac{15}{28}$. **Answer: 15/28.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Exact enumeration + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-07",
+  "category": "probability",
+  "topic": "Cards",
+  "difficulty": "easy",
+  "statement": "Two cards are drawn from a shuffled standard $52$-card deck. What is the probability that both are aces?",
+  "hint": "Multiply the probability for the first card by the probability for the second given the first.",
+  "answer": {
+   "type": "exact",
+   "value": "1/221"
+  },
+  "solution": "$\\frac4{52}\\cdot\\frac3{51}=\\frac{12}{2652}=\\frac1{221}$. **Answer: 1/221.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Exact enumeration of all pairs + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-08",
+  "category": "probability",
+  "topic": "Dice",
+  "difficulty": "easy",
+  "statement": "Three fair dice are rolled. What is the probability that the total is $10$?",
+  "hint": "Count ordered triples $(a,b,c)$ with $1\\le a,b,c\\le6$ and $a+b+c=10$. Stars and bars, then remove the triples with a value above $6$.",
+  "answer": {
+   "type": "exact",
+   "value": "1/8"
+  },
+  "solution": "Positive solutions of $a+b+c=10$: $\\binom92=36$. Remove those with some value $\\ge7$: if $a\\ge7$, set $a'=a-6$, giving $a'+b+c=4$, $\\binom32=3$ solutions; times $3$ dice $=9$. So $27$ triples, and $\\frac{27}{216}=\\frac18$. **Answer: 1/8.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Exact enumeration of 216 outcomes + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-09",
+  "category": "probability",
+  "topic": "Permutations",
+  "difficulty": "easy",
+  "statement": "Four people put their hats in a box and each takes one back at random. What is the probability that nobody gets their own hat?",
+  "hint": "Count permutations of $4$ with no fixed point. Inclusion-exclusion, or just list them carefully.",
+  "answer": {
+   "type": "exact",
+   "value": "3/8"
+  },
+  "solution": "Inclusion-exclusion: $4!-\\binom41 3!+\\binom42 2!-\\binom43 1!+\\binom44 0!=24-24+12-4+1=9$ derangements. Probability $\\frac9{24}=\\frac38$. **Answer: 3/8.**",
+  "source": "Classic (the hat-check problem)",
+  "verification": {
+   "status": "verified",
+   "method": "Exact enumeration of 24 permutations + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-10",
+  "category": "probability",
+  "topic": "Expected value",
+  "difficulty": "easy",
+  "statement": "You toss a fair coin until you have seen at least one head and at least one tail. What is the expected number of tosses?",
+  "hint": "The first toss is whatever it is. After that, you're waiting for the other face.",
+  "answer": {
+   "type": "exact",
+   "value": "3"
+  },
+  "solution": "The first toss shows some face. Then you wait for the opposite face, which has probability $\\frac12$ each toss, so it takes $2$ tosses on average. Total $1+2=3$. **Answer: 3.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Exact series (truncated) + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-11",
+  "category": "probability",
+  "topic": "Games",
+  "difficulty": "easy",
+  "statement": "Alice and Bob take turns tossing a fair coin, Alice first. The first person to toss a head wins. What is the probability that Alice wins?",
+  "hint": "Let $p$ be Alice's chance. If her first toss is tails, what is the situation from Bob's point of view?",
+  "answer": {
+   "type": "exact",
+   "value": "2/3"
+  },
+  "solution": "Alice wins immediately with probability $\\frac12$. Otherwise Bob is now 'first', so Alice wins with probability $1-p$. So $p=\\frac12+\\frac12(1-p)$, giving $p=\\frac23$. **Answer: 2/3.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Exact geometric series + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-12",
+  "category": "probability",
+  "topic": "Expected value",
+  "difficulty": "easy",
+  "statement": "Ten letters are put into ten addressed envelopes at random. What is the expected number of letters in the correct envelope?",
+  "hint": "Don't find the distribution. Write the count as a sum of indicator variables.",
+  "answer": {
+   "type": "exact",
+   "value": "1"
+  },
+  "solution": "Let $X_i=1$ if letter $i$ is in its own envelope. $P(X_i=1)=\\frac1{10}$, so $E[X_i]=\\frac1{10}$. By linearity of expectation, $E\\left[\\sum X_i\\right]=10\\cdot\\frac1{10}=1$, even though the $X_i$ are dependent. **Answer: 1.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Exact average over all 8! permutations of 8 (same pattern) + Monte Carlo for 10",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-13",
+  "category": "probability",
+  "topic": "Counting",
+  "difficulty": "easy",
+  "statement": "An integer is chosen uniformly from $1$ to $100$. What is the probability that it is divisible by $2$, $3$ or $5$?",
+  "hint": "Inclusion-exclusion over the three conditions, or count the complement: numbers coprime to $30$.",
+  "answer": {
+   "type": "exact",
+   "value": "37/50"
+  },
+  "solution": "$|A_2|+|A_3|+|A_5|=50+33+20=103$; pairs: $|A_6|+|A_{10}|+|A_{15}|=16+10+6=32$; triple: $|A_{30}|=3$. Total $103-32+3=74$. Probability $\\frac{74}{100}=\\frac{37}{50}$. **Answer: 37/50.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Brute force over 1..100",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-14",
+  "category": "probability",
+  "topic": "Symmetry",
+  "difficulty": "easy",
+  "statement": "Three ants sit at the corners of a triangle. Each picks one of the two edges at random and walks along it at the same speed. What is the probability that no two ants collide?",
+  "hint": "When do they all avoid each other? Think about directions around the triangle.",
+  "answer": {
+   "type": "exact",
+   "value": "1/4"
+  },
+  "solution": "There are $2^3=8$ equally likely choices. They avoid each other only if all walk clockwise or all walk anticlockwise: $2$ choices. Probability $\\frac28=\\frac14$. **Answer: 1/4.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Exact enumeration + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-15",
+  "category": "probability",
+  "topic": "Conditional probability",
+  "difficulty": "medium",
+  "statement": "A box has three cards: one red on both sides, one black on both sides, one red on one side and black on the other. You draw a card at random and look at one random side: it's red. What is the probability that the other side is red too?",
+  "hint": "Count equally likely *faces*, not cards.",
+  "answer": {
+   "type": "exact",
+   "value": "2/3"
+  },
+  "solution": "There are $3$ red faces, all equally likely to be the one you see. Two of them belong to the red-red card, whose other side is red. So the probability is $\\frac23$, not $\\frac12$. **Answer: 2/3.**",
+  "source": "Bertrand's box paradox (1889)",
+  "verification": {
+   "status": "verified",
+   "method": "Exact enumeration of faces + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-16",
+  "category": "probability",
+  "topic": "Expected value",
+  "difficulty": "medium",
+  "statement": "You toss a fair coin until the pattern HT (head then tail) appears. What is the expected number of tosses?",
+  "hint": "First wait for an H. Once you have an H, what happens on each later toss?",
+  "answer": {
+   "type": "exact",
+   "value": "4"
+  },
+  "solution": "Waiting for the first H takes $2$ tosses on average. Once you have an H, further H's don't hurt (you're still 'on an H'), and you just wait for a T: another $2$ on average. Total $4$. **Answer: 4.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Exact linear system on pattern states + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-17",
+  "category": "probability",
+  "topic": "Expected value",
+  "difficulty": "medium",
+  "statement": "You toss a fair coin until two heads in a row (HH) appear. What is the expected number of tosses?",
+  "hint": "Unlike HT, a T after an H sends you back to the start. Set up equations for $E_0$ (start) and $E_1$ (just tossed H).",
+  "answer": {
+   "type": "exact",
+   "value": "6"
+  },
+  "solution": "$E_0=1+\\frac12E_1+\\frac12E_0$ and $E_1=1+\\frac12\\cdot0+\\frac12E_0$. From the first: $E_0=2+E_1$. Substituting: $E_1=1+\\frac12(2+E_1)$, so $E_1=4$, $E_0=6$. **Answer: 6.** (HT takes $4$: patterns that overlap themselves take longer.)",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Exact linear system on pattern states + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-18",
+  "category": "probability",
+  "topic": "Expected value",
+  "difficulty": "medium",
+  "statement": "Two fair dice are rolled. What is the expected value of the larger of the two numbers?",
+  "hint": "$P(\\max\\le k)=\\left(\\frac k6\\right)^2$. Use it to get $P(\\max=k)$.",
+  "answer": {
+   "type": "exact",
+   "value": "161/36"
+  },
+  "solution": "$P(\\max=k)=\\frac{k^2-(k-1)^2}{36}=\\frac{2k-1}{36}$. So $E=\\sum_{k=1}^6k\\cdot\\frac{2k-1}{36}=\\frac{1+6+15+28+45+66}{36}=\\frac{161}{36}\\approx4.47$. **Answer: 161/36.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Exact enumeration + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-19",
+  "category": "probability",
+  "topic": "Optimal stopping",
+  "difficulty": "medium",
+  "statement": "You roll a fair die and win the number shown in pounds. After seeing the first roll you may roll once more, but then you must take the second result. With the best strategy, what is your expected win?",
+  "hint": "A second roll is worth $3.5$ on average. When should you keep the first roll?",
+  "answer": {
+   "type": "exact",
+   "value": "17/4"
+  },
+  "solution": "Reroll exactly when the first roll is below $3.5$, i.e. $1,2,3$. Expected value: $\\frac36\\cdot\\frac{4+5+6}3+\\frac36\\cdot3.5=\\frac12\\cdot5+\\frac12\\cdot3.5=4.25$. **Answer: 17/4.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Every threshold strategy evaluated exactly + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-20",
+  "category": "probability",
+  "topic": "Classic",
+  "difficulty": "medium",
+  "statement": "What is the smallest number of people in a room for which the probability that two share a birthday is more than $\\frac12$? (Ignore leap years; all $365$ days equally likely.)",
+  "hint": "Compute P(all different) $=\\frac{365}{365}\\cdot\\frac{364}{365}\\cdots$ and see when it drops below $\\frac12$. A rough estimate: $P\\approx e^{-n^2/730}$.",
+  "answer": {
+   "type": "exact",
+   "value": "23"
+  },
+  "solution": "P(all distinct for $n$ people) $=\\prod_{k=0}^{n-1}\\frac{365-k}{365}$. With $\\ln(1-x)\\approx-x$ this is about $e^{-n(n-1)/730}$, which equals $\\frac12$ near $n(n-1)\\approx506$, i.e. $n\\approx23$. Exactly: $n=22$ gives $0.524$, $n=23$ gives $0.493$. **Answer: 23.**",
+  "source": "The birthday problem (classic)",
+  "verification": {
+   "status": "verified",
+   "method": "Exact Fraction product",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-21",
+  "category": "probability",
+  "topic": "Expected value",
+  "difficulty": "medium",
+  "statement": "You roll a fair die repeatedly until every face $1$-$6$ has appeared at least once. What is the expected number of rolls?",
+  "hint": "Split the process into stages: waiting for the 1st new face, the 2nd new face, ... How long does each stage take?",
+  "answer": {
+   "type": "exact",
+   "value": "147/10"
+  },
+  "solution": "When you've seen $k$ faces, a new one comes with probability $\\frac{6-k}6$, taking $\\frac6{6-k}$ rolls on average. Total $6\\left(\\frac16+\\frac15+\\frac14+\\frac13+\\frac12+1\\right)=6\\cdot\\frac{49}{20}=\\frac{147}{10}=14.7$. **Answer: 147/10.**",
+  "source": "Classic (the coupon collector problem)",
+  "verification": {
+   "status": "verified",
+   "method": "Exact Fraction sum + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-22",
+  "category": "probability",
+  "topic": "Random walks",
+  "difficulty": "medium",
+  "statement": "You start with £3 and bet £1 on fair coin tosses. You stop when you have £0 or £10. What is the probability that you reach £10?",
+  "hint": "A fair game: your expected fortune never changes. What does that say at the moment you stop?",
+  "answer": {
+   "type": "exact",
+   "value": "3/10"
+  },
+  "solution": "In a fair game your expected wealth stays at $3$. At the end you have $10$ with probability $p$ and $0$ otherwise, so $10p=3$, $p=\\frac3{10}$. (Or solve $p_k=\\frac12(p_{k-1}+p_{k+1})$: $p_k$ is linear, $p_k=\\frac k{10}$.) **Answer: 3/10.**",
+  "source": "Classic (gambler's ruin)",
+  "verification": {
+   "status": "verified",
+   "method": "Value iteration to convergence + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-23",
+  "category": "probability",
+  "topic": "Expected value",
+  "difficulty": "medium",
+  "statement": "A fair coin is tossed $10$ times. A *run* is a maximal block of equal results (HHTHHH has $3$ runs). What is the expected number of runs?",
+  "hint": "Number of runs $=1+$ number of places where a toss differs from the one before. Use linearity.",
+  "answer": {
+   "type": "exact",
+   "value": "11/2"
+  },
+  "solution": "Each of the $9$ adjacent pairs differs with probability $\\frac12$. So $E=1+9\\cdot\\frac12=\\frac{11}2$. **Answer: 11/2.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Exact enumeration of all 1024 sequences",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-24",
+  "category": "probability",
+  "topic": "Cards",
+  "difficulty": "medium",
+  "statement": "A $5$-card hand is dealt from a standard deck. What is the probability that all five cards are the same suit? (Give an exact fraction.)",
+  "hint": "Choose the suit, then the five cards within it. Divide by $\\binom{52}5$.",
+  "answer": {
+   "type": "exact",
+   "value": "33/16660"
+  },
+  "solution": "$\\frac{4\\binom{13}5}{\\binom{52}5}=\\frac{4\\cdot1287}{2598960}=\\frac{5148}{2598960}=\\frac{33}{16660}\\approx0.00198$. **Answer: 33/16660.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Full enumeration of all 2,598,960 hands",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-25",
+  "category": "probability",
+  "topic": "Conditional probability",
+  "difficulty": "medium",
+  "statement": "A revolver has $6$ chambers in a circle. Two bullets are loaded in **adjacent** chambers, the cylinder is spun, and the trigger is pulled once: click, empty. The trigger is pulled again without spinning, advancing to the next chamber. What is the probability that it is empty again?",
+  "hint": "Number the chambers and list where the first empty pull could have been. Which of those are followed by a bullet?",
+  "answer": {
+   "type": "exact",
+   "value": "3/4"
+  },
+  "solution": "Bullets in chambers $1,2$; the $4$ empty chambers are $3,4,5,6$, equally likely to have been the first pull. The next chamber is a bullet only after $6$ (next is $1$). So the next pull is empty in $3$ of $4$ cases. **Answer: 3/4.** (Respinning gives only $\\frac46=\\frac23$, so don't spin.)",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Exact enumeration of loadings and positions",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-26",
+  "category": "probability",
+  "topic": "Expected value",
+  "difficulty": "medium",
+  "statement": "A standard deck is shuffled and cards are turned over one by one. What is the expected position of the first ace?",
+  "hint": "The $4$ aces split the $48$ other cards into $5$ gaps. By symmetry, how many non-aces sit before the first ace on average?",
+  "answer": {
+   "type": "exact",
+   "value": "53/5"
+  },
+  "solution": "Each of the $48$ non-aces is equally likely to fall in any of the $5$ gaps around the $4$ aces, so on average $\\frac{48}5$ come before the first ace. Its position is $1+\\frac{48}5=\\frac{53}5=10.6$. **Answer: 53/5.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Exact sum over positions + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-27",
+  "category": "probability",
+  "topic": "Continuous",
+  "difficulty": "medium",
+  "statement": "A stick of length $1$ is broken at a uniformly random point. What is the expected length of the shorter piece?",
+  "hint": "If the break point is $U$, the shorter piece is $\\min(U,1-U)$. What's its distribution?",
+  "answer": {
+   "type": "exact",
+   "value": "1/4"
+  },
+  "solution": "$\\min(U,1-U)$ is uniform on $\\left[0,\\frac12\\right]$: by symmetry you can fold the stick in half. Its mean is $\\frac14$. **Answer: 1/4.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Midpoint grid with 10^6 cells + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-28",
+  "category": "probability",
+  "topic": "Continuous",
+  "difficulty": "medium",
+  "statement": "Two friends each arrive at a café at a uniformly random time between 12:00 and 13:00, independently. Each waits $15$ minutes for the other, then leaves. What is the probability they meet?",
+  "hint": "Draw the unit square of arrival times. Which region means they meet?",
+  "answer": {
+   "type": "exact",
+   "value": "7/16"
+  },
+  "solution": "In units of hours, they meet iff $|x-y|\\le\\frac14$. The complement is two corner triangles with legs $\\frac34$, total area $\\left(\\frac34\\right)^2=\\frac9{16}$. So P(meet) $=1-\\frac9{16}=\\frac7{16}$. **Answer: 7/16.**",
+  "source": "Classic (the meeting problem)",
+  "verification": {
+   "status": "verified",
+   "method": "Grid count + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-29",
+  "category": "probability",
+  "topic": "Continuous",
+  "difficulty": "medium",
+  "statement": "A stick is broken at two independent uniformly random points. What is the probability that the three pieces can form a triangle?",
+  "hint": "Three pieces with total $1$ form a triangle iff every piece is shorter than $\\frac12$. Draw the region in the square of the two break points.",
+  "answer": {
+   "type": "exact",
+   "value": "1/4"
+  },
+  "solution": "Pieces with sum $1$ form a triangle iff each is $<\\frac12$. With break points $x<y$ that means $x<\\frac12$, $y-x<\\frac12$, $y>\\frac12$: a triangle of area $\\frac18$ inside the half-square $x<y$ (area $\\frac12$). By symmetry the probability is $\\frac{1/8}{1/2}=\\frac14$. **Answer: 1/4.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Midpoint grid with 10^6 cells + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "prob-30",
+  "category": "probability",
+  "topic": "Geometric probability",
+  "difficulty": "medium",
+  "statement": "Three points are chosen independently and uniformly on a circle. What is the probability that the triangle they form contains the centre?",
+  "hint": "The centre is outside exactly when all three points lie in some semicircle. Fix a point and think about where the others fall.",
+  "answer": {
+   "type": "exact",
+   "value": "1/4"
+  },
+  "solution": "The triangle misses the centre iff the three points lie in a semicircle. For each point, the chance the other two lie in the semicircle going clockwise from it is $\\frac14$, and these $3$ events are disjoint, so P(in a semicircle) $=\\frac34$. The triangle contains the centre with probability $\\frac14$. **Answer: 1/4.**",
+  "source": "Classic quant-interview question",
+  "verification": {
+   "status": "verified",
+   "method": "Discrete grid of 120 positions + Monte Carlo",
+   "script": "verify/probability.py"
+  }
+ },
+ {
+  "id": "mm-01",
+  "category": "mental",
+  "topic": "Multiplication",
+  "difficulty": "easy",
+  "statement": "Work out $47\\times53$ in your head.",
+  "hint": "Both are $3$ away from $50$.",
+  "answer": {
+   "type": "exact",
+   "value": "2491"
+  },
+  "solution": "$(50-3)(50+3)=2500-9=2491$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-02",
+  "category": "mental",
+  "topic": "Percentages",
+  "difficulty": "easy",
+  "statement": "What is $15\\%$ of $360$?",
+  "hint": "$10\\%$ plus half of that.",
+  "answer": {
+   "type": "exact",
+   "value": "54"
+  },
+  "solution": "$10\\%=36$, $5\\%=18$, total $54$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-03",
+  "category": "mental",
+  "topic": "Squares",
+  "difficulty": "easy",
+  "statement": "Work out $99^2$.",
+  "hint": "$(100-1)^2$.",
+  "answer": {
+   "type": "exact",
+   "value": "9801"
+  },
+  "solution": "$10000-200+1=9801$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-04",
+  "category": "mental",
+  "topic": "Estimation",
+  "difficulty": "easy",
+  "statement": "Roughly how many seconds are there in a year? (Within $10\\%$ counts.)",
+  "hint": "$60\\cdot60\\cdot24$ seconds in a day.",
+  "answer": {
+   "type": "approx",
+   "value": 31536000,
+   "tolerance": 0.1
+  },
+  "solution": "$86400\\times365\\approx3.15\\times10^7$. A handy memory: a year is about $\\pi\\times10^7$ seconds.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation (365-day year)",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-05",
+  "category": "mental",
+  "topic": "Multiplication",
+  "difficulty": "easy",
+  "statement": "Work out $125\\times48$.",
+  "hint": "$125\\times8=1000$.",
+  "answer": {
+   "type": "exact",
+   "value": "6000"
+  },
+  "solution": "$125\\times48=125\\times8\\times6=1000\\times6=6000$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-06",
+  "category": "mental",
+  "topic": "Fractions",
+  "difficulty": "easy",
+  "statement": "Work out $\\dfrac37+\\dfrac25$ as a fraction in lowest terms.",
+  "hint": "Common denominator $35$.",
+  "answer": {
+   "type": "exact",
+   "value": "29/35"
+  },
+  "solution": "$\\frac{15}{35}+\\frac{14}{35}=\\frac{29}{35}$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-07",
+  "category": "mental",
+  "topic": "Estimation",
+  "difficulty": "medium",
+  "statement": "Estimate $\\sqrt{50}$ to two decimal places.",
+  "hint": "$\\sqrt{50}=5\\sqrt2$, or use $\\sqrt{49+1}\\approx7+\\frac1{14}$.",
+  "answer": {
+   "type": "approx",
+   "value": 7.0711,
+   "tolerance": 0.002
+  },
+  "solution": "$\\sqrt{49+1}\\approx7+\\frac{1}{2\\cdot7}=7.071$. (Exact: $5\\sqrt2=7.0711\\ldots$)",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "math.sqrt",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-08",
+  "category": "mental",
+  "topic": "Multiplication",
+  "difficulty": "easy",
+  "statement": "Work out $68\\times72$.",
+  "hint": "Both are $4$ away from $70$.",
+  "answer": {
+   "type": "exact",
+   "value": "4896"
+  },
+  "solution": "$70^2-4^2=4900-16=4896$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-09",
+  "category": "mental",
+  "topic": "Decimals",
+  "difficulty": "easy",
+  "statement": "Work out $0.35\\times0.4$.",
+  "hint": "$35\\times4$, then place the decimal point.",
+  "answer": {
+   "type": "exact",
+   "value": "0.14"
+  },
+  "solution": "$35\\times4=140$, and there are $3$ decimal places in total: $0.140=0.14$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-10",
+  "category": "mental",
+  "topic": "Multiplication",
+  "difficulty": "easy",
+  "statement": "Work out $7346\\times11$.",
+  "hint": "Multiplying by $11$: add neighbouring digits.",
+  "answer": {
+   "type": "exact",
+   "value": "80806"
+  },
+  "solution": "$7346\\times11=73460+7346=80806$. (Digit trick: $7,\\ 7{+}3,\\ 3{+}4,\\ 4{+}6,\\ 6$ with carries.)",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-11",
+  "category": "mental",
+  "topic": "Estimation",
+  "difficulty": "medium",
+  "statement": "Money grows at $7\\%$ a year, compounded annually. Roughly how many years until it doubles? (Within $10\\%$ counts.)",
+  "hint": "The rule of $72$.",
+  "answer": {
+   "type": "approx",
+   "value": 10.245,
+   "tolerance": 0.1
+  },
+  "solution": "Rule of $72$: $72/7\\approx10.3$ years. Exact: $\\ln2/\\ln1.07\\approx10.24$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "math.log",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-12",
+  "category": "mental",
+  "topic": "Squares",
+  "difficulty": "easy",
+  "statement": "Work out $25^2+35^2$.",
+  "hint": "Squares ending in $5$: $n5^2=n(n+1)$ followed by $25$.",
+  "answer": {
+   "type": "exact",
+   "value": "1850"
+  },
+  "solution": "$625+1225=1850$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-13",
+  "category": "mental",
+  "topic": "Division",
+  "difficulty": "easy",
+  "statement": "Work out $84\\div0.07$.",
+  "hint": "Multiply both by $100$.",
+  "answer": {
+   "type": "exact",
+   "value": "1200"
+  },
+  "solution": "$8400\\div7=1200$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-14",
+  "category": "mental",
+  "topic": "Estimation",
+  "difficulty": "medium",
+  "statement": "Estimate $e^3$. (Within $5\\%$ counts.)",
+  "hint": "$e\\approx2.718$; $e^2\\approx7.39$.",
+  "answer": {
+   "type": "approx",
+   "value": 20.0855,
+   "tolerance": 0.05
+  },
+  "solution": "$e^2\\approx7.39$, $\\times2.718\\approx20.1$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "math.exp",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-15",
+  "category": "mental",
+  "topic": "Squares",
+  "difficulty": "easy",
+  "statement": "Work out $999\\times999$.",
+  "hint": "$(1000-1)^2$.",
+  "answer": {
+   "type": "exact",
+   "value": "998001"
+  },
+  "solution": "$1000000-2000+1=998001$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-16",
+  "category": "mental",
+  "topic": "Series",
+  "difficulty": "easy",
+  "statement": "What is $1+3+5+\\cdots+99$?",
+  "hint": "Sum of the first $n$ odd numbers.",
+  "answer": {
+   "type": "exact",
+   "value": "2500"
+  },
+  "solution": "There are $50$ odd numbers, and the sum of the first $n$ odd numbers is $n^2$: $50^2=2500$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-17",
+  "category": "mental",
+  "topic": "Estimation",
+  "difficulty": "medium",
+  "statement": "Estimate $1.1^5$. (Within $1\\%$ counts.)",
+  "hint": "Binomial: $1+5(0.1)+10(0.01)+10(0.001)+\\cdots$",
+  "answer": {
+   "type": "approx",
+   "value": 1.61051,
+   "tolerance": 0.01
+  },
+  "solution": "$1+0.5+0.1+0.01+0.0005+0.00001=1.61051$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-18",
+  "category": "mental",
+  "topic": "Powers",
+  "difficulty": "easy",
+  "statement": "Work out $2^{10}\\times5^7$.",
+  "hint": "Pair up $2$s with $5$s.",
+  "answer": {
+   "type": "exact",
+   "value": "80000000"
+  },
+  "solution": "$2^{10}5^7=2^3\\cdot(2\\cdot5)^7=8\\times10^7=80\\,000\\,000$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-19",
+  "category": "mental",
+  "topic": "Units",
+  "difficulty": "easy",
+  "statement": "Convert $72$ km/h to metres per second.",
+  "hint": "Divide km/h by $3.6$.",
+  "answer": {
+   "type": "exact",
+   "value": "20"
+  },
+  "solution": "$72000\\text{ m}/3600\\text{ s}=20$ m/s.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-20",
+  "category": "mental",
+  "topic": "Estimation",
+  "difficulty": "medium",
+  "statement": "Estimate $\\sqrt2\\times\\sqrt3$ to two decimal places.",
+  "hint": "$\\sqrt6$ lies between $2.4$ and $2.5$.",
+  "answer": {
+   "type": "approx",
+   "value": 2.4495,
+   "tolerance": 0.005
+  },
+  "solution": "$\\sqrt6$: $2.45^2=6.0025$, so $\\sqrt6\\approx2.449$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "math.sqrt",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-21",
+  "category": "mental",
+  "topic": "Multiplication",
+  "difficulty": "easy",
+  "statement": "Work out $13\\times17$.",
+  "hint": "$15^2-2^2$.",
+  "answer": {
+   "type": "exact",
+   "value": "221"
+  },
+  "solution": "$225-4=221$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-22",
+  "category": "mental",
+  "topic": "Powers",
+  "difficulty": "easy",
+  "statement": "Work out $64^{2/3}$.",
+  "hint": "Cube root first.",
+  "answer": {
+   "type": "exact",
+   "value": "16"
+  },
+  "solution": "$\\sqrt[3]{64}=4$, $4^2=16$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-23",
+  "category": "mental",
+  "topic": "Estimation",
+  "difficulty": "easy",
+  "statement": "Estimate $1000\\div7$. (Within $1\\%$ counts.)",
+  "hint": "$\\frac17=0.142857\\ldots$",
+  "answer": {
+   "type": "approx",
+   "value": 142.857,
+   "tolerance": 0.01
+  },
+  "solution": "$\\frac17\\approx0.142857$, so $\\approx142.9$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-24",
+  "category": "mental",
+  "topic": "Powers",
+  "difficulty": "medium",
+  "statement": "Work out $17^3$.",
+  "hint": "$17^2=289$, then $\\times17$.",
+  "answer": {
+   "type": "exact",
+   "value": "4913"
+  },
+  "solution": "$289\\times17=2890+2023=4913$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-25",
+  "category": "mental",
+  "topic": "Fractions",
+  "difficulty": "easy",
+  "statement": "Write $\\dfrac1{16}$ as a decimal.",
+  "hint": "Halve $\\frac18=0.125$.",
+  "answer": {
+   "type": "exact",
+   "value": "0.0625"
+  },
+  "solution": "$0.125\\div2=0.0625$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-26",
+  "category": "mental",
+  "topic": "Estimation",
+  "difficulty": "medium",
+  "statement": "Estimate $3.9\\times4.1\\times5.2$. (Within $2\\%$ counts.)",
+  "hint": "$3.9\\times4.1=4^2-0.1^2$.",
+  "answer": {
+   "type": "approx",
+   "value": 83.148,
+   "tolerance": 0.02
+  },
+  "solution": "$3.9\\times4.1=15.99$, $\\times5.2\\approx83.15$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-27",
+  "category": "mental",
+  "topic": "Squares",
+  "difficulty": "easy",
+  "statement": "Work out $45^2$.",
+  "hint": "$n5^2$: $n(n+1)$ then $25$.",
+  "answer": {
+   "type": "exact",
+   "value": "2025"
+  },
+  "solution": "$4\\times5=20$, then $25$: $2025$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-28",
+  "category": "mental",
+  "topic": "Estimation",
+  "difficulty": "easy",
+  "statement": "Estimate $2^{30}$. (Within $10\\%$ counts.)",
+  "hint": "$2^{10}\\approx10^3$.",
+  "answer": {
+   "type": "approx",
+   "value": 1073741824,
+   "tolerance": 0.1
+  },
+  "solution": "$2^{30}=(2^{10})^3\\approx10^9$; exact $1\\,073\\,741\\,824$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-29",
+  "category": "mental",
+  "topic": "Estimation",
+  "difficulty": "medium",
+  "statement": "Estimate $1.05^{10}$. (Within $2\\%$ counts.)",
+  "hint": "$\\ln1.05\\approx0.0488$; or use the rule of $72$.",
+  "answer": {
+   "type": "approx",
+   "value": 1.62889,
+   "tolerance": 0.02
+  },
+  "solution": "$10\\ln1.05\\approx0.488$, $e^{0.488}\\approx1.63$. (Rule of $72$: doubling takes $14.4$ years, so $10$ years gives $2^{10/14.4}\\approx1.62$.)",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "Direct computation",
+   "script": "verify/mental.py"
+  }
+ },
+ {
+  "id": "mm-30",
+  "category": "mental",
+  "topic": "Estimation",
+  "difficulty": "medium",
+  "statement": "Estimate $\\log_{10}2026$. (Within $1\\%$ counts.)",
+  "hint": "$\\log_{10}2\\approx0.301$.",
+  "answer": {
+   "type": "approx",
+   "value": 3.30664,
+   "tolerance": 0.01
+  },
+  "solution": "$2026\\approx2\\times10^3$, so $\\log_{10}\\approx3.301$, plus a little: $\\log_{10}1.013\\approx0.0056$, total $\\approx3.307$.",
+  "source": "Mental arithmetic drill",
+  "verification": {
+   "status": "verified",
+   "method": "math.log10",
+   "script": "verify/mental.py"
+  }
+ }
+]
